@@ -1,11 +1,13 @@
 from django.db import models
 from django.core.validators import MinLengthValidator, ValidationError
+from django.contrib.auth import models as auth_models
 
 
 class ProfileModel(models.Model):
     first_name = models.CharField(max_length=20,
                                   validators=[MinLengthValidator(2)])
-    last_name = models.CharField(max_length=30, validators=[MinLengthValidator(4)])
+    last_name = models.CharField(
+        max_length=30, validators=[MinLengthValidator(4)])
     email = models.EmailField(max_length=45)
     profile_picture = models.URLField(null=True, blank=True)
     password = models.CharField(max_length=20,
@@ -18,6 +20,7 @@ class ProfileModel(models.Model):
         if not any(char.isdigit() for char in self.password):
             raise ValidationError("The password must contain at least 1 digit!")
 
+    @property
     def get_full_name(self):
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
