@@ -19,7 +19,7 @@ def index(request):
     context = {
         'profile': profile
     }
-    return render(request, 'home-page.html', context)
+    return render(request, 'shared/home-page.html', context)
 
 
 def dashboard(request):
@@ -29,7 +29,7 @@ def dashboard(request):
         'profile': profile,
         'events': events,
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'events/dashboard.html', context)
 
 
 def profile_create(request):
