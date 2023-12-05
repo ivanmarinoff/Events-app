@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from Library_online_catalog.library.views import ProfileViewSet, EventViewSet
+
+router = routers.DefaultRouter()
+router.register(r'profiles', ProfileViewSet)
+router.register(r'events', EventViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("Library_online_catalog.library.urls")),
+    path('', include(router.urls)),
 ]

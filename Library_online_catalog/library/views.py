@@ -1,10 +1,18 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
-
 from .forms import ProfileCreateForm, ProfileEditForm, ProfileDeleteForm, EventCreateForm
+from rest_framework import viewsets
 from .models import ProfileModel, EventModel
+from .serializers import ProfileSerializer, EventSerializer
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = ProfileModel.objects.all()
+    serializer_class = ProfileSerializer
+
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = EventModel.objects.all()
+    serializer_class = EventSerializer
 
 
 def get_profile():
