@@ -4,4 +4,4 @@ __pycache__
 db.sqlite3
 staticfiles
 .idea
-/Library_online_catalog/library/migrations/
+/Library_online_catalog/library/migrations/0001_initial.py
