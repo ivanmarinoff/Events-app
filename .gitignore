@@ -1,6 +1,7 @@
 .env
 venv
-migrations
 __pycache__
 db.sqlite3
 staticfiles
+.idea
+/Library_online_catalog/library/migrations/
