@@ -5,7 +5,7 @@ from .models import EventModel, ProfileModel
 
 
 class imageAdmin(admin.ModelAdmin):
-    list_display = ["event_name", "category", "description", "date", "event_image"]
+    list_display = ["event_name", "category", "description", "date", "event_image", "image_tag"]
     list_filter = ["event_name", "date"]
     search_fields = ['event_name']
     ordering = ['-date']
@@ -17,7 +17,7 @@ class imageAdmin(admin.ModelAdmin):
 
 
 class UserModelAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "email", "profile_picture"]
+    list_display = ["first_name", "last_name", "email", "profile_picture", "image_tag"]
     list_filter = ["first_name", "last_name"]
     search_fields = ['first_name']
     ordering = ['-first_name']
